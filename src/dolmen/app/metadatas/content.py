@@ -5,13 +5,12 @@ import zope.dublincore.interfaces as dc
 
 from z3c.form.field import Fields
 from zope.i18nmessageid import MessageFactory
+from megrok.z3cform.composed import ComposedForm
 
 import dolmen.forms.crud as crud
 from dolmen.content import IContent
-from dolmen.forms.composed import ComposedForm
 from dolmen.app.layout import models
 from dolmen.app.layout import ContentActions, menuitem
-
 
 _ = MessageFactory("dolmen")
 

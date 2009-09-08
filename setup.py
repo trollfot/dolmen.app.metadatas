@@ -24,7 +24,8 @@ setup(name='dolmen.app.metadatas',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          
+          'zope.dublincore',
+          'megrok.z3cform.composed',
       ],
       entry_points="""
       # -*- Entry points: -*-
