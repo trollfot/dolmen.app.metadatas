@@ -11,12 +11,6 @@ grok.templatedir("templates")
 _ = MessageFactory("dolmen")
 
 
-class Authors(grok.Viewlet):
-    grok.name('dolmen.authors')
-    grok.context(IAttributeAnnotatable)
-    grok.viewletmanager(master.DolmenFooter)
-
-
 class ContentInformations(grok.Viewlet):
     grok.name('dolmen.byline')
     grok.context(IAttributeAnnotatable)
