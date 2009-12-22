@@ -9,13 +9,12 @@ from megrok.z3cform.composed import ComposedForm
 
 import dolmen.forms.crud as crud
 from dolmen.content import IContent
-from dolmen.app.layout import models
-from dolmen.app.layout import ContentActions, menuitem
+from dolmen.app.layout import models, ContextualMenuEntry
 
 _ = MessageFactory("dolmen")
 
 
-class Metadata(ComposedForm, models.ApplicationAwareView, models.TabView):
+class Metadata(ComposedForm, models.ApplicationAwareView, ContextualMenuEntry):
     grok.name('metadatas')
     grok.title(_(u"Metadata"))
     grok.context(IContent)

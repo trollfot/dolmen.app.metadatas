@@ -12,7 +12,7 @@ class MetaTags(grok.Viewlet):
     grok.order(10)
     grok.name('dolmen.metatags')
     grok.context(IAttributeAnnotatable)
-    grok.viewletmanager(master.DolmenHeader)
+    grok.viewletmanager(master.Header)
 
     def update(self):
         self.root = getSite()

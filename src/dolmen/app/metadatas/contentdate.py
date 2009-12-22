@@ -14,7 +14,7 @@ _ = MessageFactory("dolmen")
 class ContentInformations(grok.Viewlet):
     grok.name('metadata.contentinformation')
     grok.context(IAttributeAnnotatable)
-    grok.viewletmanager(master.DolmenBelowBody)
+    grok.viewletmanager(master.BelowBody)
     grok.order(20)
 
     creation = u""
