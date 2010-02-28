@@ -14,7 +14,7 @@ from dolmen.app.layout import models, ContextualMenuEntry
 _ = MessageFactory("dolmen")
 
 
-class Metadata(ComposedForm, models.ApplicationAwareView, ContextualMenuEntry):
+class Metadata(ComposedForm, ContextualMenuEntry):
     grok.name('metadatas')
     grok.title(_(u"Metadata"))
     grok.context(IContent)
