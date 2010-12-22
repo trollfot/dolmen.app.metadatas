@@ -3,17 +3,16 @@
 import grokcore.viewlet as grok
 import zope.dublincore.interfaces as dc
 
-from z3c.form.field import Fields
-from zope.i18nmessageid import MessageFactory
-from zeam.form.layout import ComposedForm
-from zeam.form.composed import SubForm
-from zeam.form.base import SubForm, Actions
-from zeam.form.base.datamanager import makeAdaptiveDataManager
-from zeam.form.ztk.actions import EditAction
-
+from dolmen import menu
 from dolmen.app import security
-from dolmen.content import IContent
 from dolmen.app.layout import models
+from dolmen.content import IContent
+from zeam.form.base import Actions, Fields
+from zeam.form.base.datamanager import makeAdaptiveDataManager
+from zeam.form.composed import SubForm
+from zeam.form.layout import ComposedForm
+from zeam.form.ztk.actions import EditAction
+from zope.i18nmessageid import MessageFactory
 
 _ = MessageFactory("dolmen")
 
