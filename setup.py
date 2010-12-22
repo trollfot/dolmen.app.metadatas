@@ -23,9 +23,17 @@ setup(name='dolmen.app.metadatas',
       include_package_data=True,
       zip_safe=False,
       install_requires=[
+          'dolmen.app.layout',
+          'dolmen.app.security',
+          'dolmen.content',
+          'dolmen.menu',
           'setuptools',
+          'zeam.form.base',
+          'zeam.form.composed',
+          'zeam.form.layout',
+          'zeam.form.ztk',
           'zope.dublincore',
-          'megrok.z3cform.composed',
+          'grokcore.viewlet',
       ],
       entry_points="""
       # -*- Entry points: -*-
