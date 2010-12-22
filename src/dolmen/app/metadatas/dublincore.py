@@ -22,7 +22,7 @@ class Metadata(ComposedForm):
     grok.name('metadatas')
     grok.title(_(u"Metadata"))
     grok.context(IContent)
-    grok.require(security.ContentEdit)
+    grok.require(security.CanEditContent)
 
     label = 'Metadata Editing'
     form_name = 'Edit the general dublincore metadata'
