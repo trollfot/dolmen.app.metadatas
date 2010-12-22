@@ -2,8 +2,10 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:grok="http://namespaces.zope.org/grok">
 
+  <include package="zeam.form.ztk" />
+  <include package="zeam.form.composed" />
+  <include package="zeam.form.layout" />
   <include package="zope.dublincore" />
-  <include package="megrok.z3cform.composed" />
   <include package="grokcore.view" file="meta.zcml" />
   <include package="grokcore.viewlet" file="meta.zcml" />
   <grok:grok package="." />
