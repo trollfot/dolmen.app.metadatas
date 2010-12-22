@@ -3,20 +3,20 @@
 import grokcore.viewlet as grok
 from dolmen.app.layout import master
 from zope.app.component.hooks import getSite
-from zope.dublincore.interfaces import IZopeDublinCore
-from zope.annotation.interfaces import IAttributeAnnotatable
+from zope.dublincore import interfaces
 
 grok.templatedir("templates")
+
 
 class MetaTags(grok.Viewlet):
     grok.order(10)
     grok.name('dolmen.metatags')
-    grok.context(IAttributeAnnotatable)
+    grok.context(interfaces.IAttributeAnnotatable)
     grok.viewletmanager(master.Header)
 
     def update(self):
         self.root = getSite()
-        self.DublinCore = IZopeDublinCore(self.context, None)
+        self.DublinCore = interfaces.IZopeDublinCore(self.context, None)
 
     @property
     def title(self):

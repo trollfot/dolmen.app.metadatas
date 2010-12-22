@@ -5,26 +5,31 @@ import zope.dublincore.interfaces as dc
 
 from z3c.form.field import Fields
 from zope.i18nmessageid import MessageFactory
-from megrok.z3cform.composed import ComposedForm
+from zeam.form.layout import ComposedForm
+from zeam.form.composed import SubForm
+from zeam.form.base import SubForm, Actions
+from zeam.form.base.datamanager import makeAdaptiveDataManager
+from zeam.form.ztk.actions import EditAction
 
-import dolmen.forms.crud as crud
+from dolmen.app import security
 from dolmen.content import IContent
-from dolmen.app.layout import models, ContextualMenuEntry
+from dolmen.app.layout import models
 
 _ = MessageFactory("dolmen")
 
 
-class Metadata(ComposedForm, ContextualMenuEntry):
+@menu.menuentry(layout.ContextualMenu, order=50)
+class Metadata(ComposedForm):
     grok.name('metadatas')
     grok.title(_(u"Metadata"))
     grok.context(IContent)
-    grok.require('dolmen.content.Edit')
+    grok.require(security.EditContent)
 
     label = 'Metadata Editing'
     form_name = 'Edit the general dublincore metadata'
 
 
-class DescriptionMetadata(models.SubForm, crud.Edit):
+class DescriptionMetadata(SubForm):
     grok.view(Metadata)
     grok.context(IContent)
     grok.name('metadata.description')
@@ -33,9 +38,11 @@ class DescriptionMetadata(models.SubForm, crud.Edit):
     label = "Content description"
     form_name = "Content description"
     fields = Fields(dc.IDCDescriptiveProperties)
+    dataManager = makeAdaptiveDataManager(dc.IDCDescriptiveProperties)
+    actions = Actions(EditAction(u'Update'))
     
 
-class PublishingMetadata(models.SubForm, crud.Edit):
+class PublishingMetadata(SubForm):
     grok.view(Metadata)
     grok.context(IContent)
     grok.name('metadata.publishing')
@@ -44,9 +51,11 @@ class PublishingMetadata(models.SubForm, crud.Edit):
     label = "Publishing informations"
     form_name = "Publishing informations"
     fields = Fields(dc.IDCPublishing)
+    dataManager = makeAdaptiveDataManager(dc.IDCPublishing)
+    actions = Actions(EditAction(u'Update'))
 
 
-class ExtendedMetadata(models.SubForm, crud.Edit):
+class ExtendedMetadata(SubForm):
     grok.view(Metadata)
     grok.context(IContent)
     grok.name('metadata.extended')
@@ -55,3 +64,5 @@ class ExtendedMetadata(models.SubForm, crud.Edit):
     label = "Extended metadata"
     form_name = "Extended metadata"
     fields = Fields(dc.IDCExtended)
+    dataManager = makeAdaptiveDataManager(dc.IDCExtended)
+    actions = Actions(EditAction(u'Update'))
