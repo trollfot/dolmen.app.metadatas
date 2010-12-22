@@ -5,7 +5,7 @@ import zope.dublincore.interfaces as dc
 
 from dolmen import menu
 from dolmen.app import security
-from dolmen.app.layout import models
+from dolmen.app.layout import ContextualMenu
 from dolmen.content import IContent
 from zeam.form.base import Actions, Fields
 from zeam.form.base.datamanager import makeAdaptiveDataManager
@@ -17,7 +17,7 @@ from zope.i18nmessageid import MessageFactory
 _ = MessageFactory("dolmen")
 
 
-@menu.menuentry(layout.ContextualMenu, order=50)
+@menu.menuentry(ContextualMenu, order=50)
 class Metadata(ComposedForm):
     grok.name('metadatas')
     grok.title(_(u"Metadata"))
